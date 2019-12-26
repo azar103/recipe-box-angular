@@ -1,5 +1,7 @@
 <div class="recipes-container">
-  <app-recipe [name]="nameRecipeOne" [url]="urlRecipeOne"> </app-recipe>
-  <app-recipe [name]="nameRecipeTwo" [url]="urlRecipeTwo"></app-recipe>
-  <app-recipe [name]="nameRecipeThree" [url]="urlRecipeThree"></app-recipe>
+  <app-recipe *ngFor="let recipe of recipes"
+      [name]= "recipe.name"
+      [url] = "recipe.url"
+  ></app-recipe
+    >
 </div>
