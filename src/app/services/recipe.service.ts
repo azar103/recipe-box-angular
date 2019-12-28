@@ -2,7 +2,8 @@ import { Recipe } from '../recipe';
 
 export class RecipeService {
  recipes =  [
-    new Recipe('Pumpkin Pie',
+    new Recipe(1,
+      'Pumpkin Pie',
     [
       'Pumpkin Puree',
       'Sweetened Condensed Milk',
@@ -23,7 +24,7 @@ export class RecipeService {
 
       )
    ,
-   new Recipe('Spaghetti',
+   new Recipe(2, 'Spaghetti',
    [
     'Noodles',
     'Tomato Sauce',
@@ -42,7 +43,7 @@ export class RecipeService {
 
     )
   ,
-  new Recipe('Onione Pie',
+  new Recipe(3, 'Onione Pie',
         [
           'Onion',
           'Pie Crust',
@@ -59,4 +60,15 @@ export class RecipeService {
 
   )
   ];
+
+  getRecipeById(id: number) {
+   const recipe =  this.recipes.find(
+     // tslint:disable-next-line: no-shadowed-variable
+     (recipe) => {
+       return recipe.id === id;
+     });
+   return recipe;
+  }
+
+
 }

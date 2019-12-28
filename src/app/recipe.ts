@@ -1,18 +1,19 @@
 export class Recipe {
-  id: number
+  id: number;
   name: string;
   ingredients: any[];
   url: string;
   preparation: any[];
   urlVideo: string;
   constructor(
+             id: number,
              name:string,
              ingredients: any[],
              url:string,
              preparation: any[],
              urlVideo: string){
 
-   this.id++;
+   this.id = id;
    this.name = name;
    this.ingredients = ingredients;
    this.url = url;

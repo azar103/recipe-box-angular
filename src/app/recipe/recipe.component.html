@@ -1,7 +1,10 @@
+
+<a [routerLink]="[id]" id="link">
 <ul>
   <li id="image-item">
-   <span><img src={{url}} alt="img" class="img"/>
+   <span><img [src]="url" alt="img" class="img"/>
   </span>
   </li>
 <li id="description-item">{{name}}</li>
 </ul>
+</a>

@@ -1,0 +1,40 @@
+<div class="DetailContainer">
+  <div class="header">
+      <img [src]="urlImg" id="header" />
+  </div>
+  <h1>{{name}}</h1>
+  <div>
+  <div class="ingredient_header">
+  <span id="ingredient_title">Ingredients</span>
+  </div>
+  <ul id="ingredients_block" *ngFor="let ingredient of ingredients | keyvalue">
+         <li>
+            {{ ingredient.value }}
+          </li>
+  </ul>
+ </div>
+
+ <div class="ingredient_header">
+  <span id="ingredient_title">Preparation</span>
+  </div>
+  <ul id="ingredients_block" class="preparation" *ngFor="let item of preparation | keyvalue">
+    <li>
+      {{item.key}}:{{item.value}}
+     </li>
+  </ul>
+
+  <div class="video">
+  <video width="504" height="240" controls autoPlay muted type="video/mp4">
+      <source [src]="urlVideo" />
+    </video>
+  </div>
+ <div class="btn-block">
+ <button class="btn btn-success" aria-label="edit" id="icon">
+    Edit
+</button>
+ <button class="btn btn-danger" aria-label="delte">
+   Delete
+ </button>
+   </div>
+   <a routerLink="/recipes" id="link">Go To Home ></a>
+  </div>

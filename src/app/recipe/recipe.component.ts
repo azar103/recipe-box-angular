@@ -8,6 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class RecipeComponent implements OnInit {
   @Input() name: string;
   @Input() url: string;
+  @Input() id: number;
+  @Input() index: number;
 
   constructor() { }
 
