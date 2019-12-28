@@ -9,7 +9,6 @@ const routes: Routes = [
   { path: 'recipes', component: RecipesViewComponent},
   { path: 'recipes/:id', component: SingleRecipeComponent},
   { path: 'new', component: NewRecipeComponent},
-  { path: '', component: RecipesViewComponent},
   { path: 'not-found', component: FourOhFourComponent},
   { path: '**', redirectTo: 'not-found'},
 
