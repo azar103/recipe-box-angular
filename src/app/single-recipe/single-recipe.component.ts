@@ -23,12 +23,7 @@ export class SingleRecipeComponent implements OnInit {
     this.urlImg = this.recipeService.getRecipeById(+id).url;
     this.urlVideo = this.recipeService.getRecipeById(+id).urlVideo;
     this.ingredients = this.recipeService.getRecipeById(+id).ingredients;
-    console.log(this.ingredients);
     this.preparation = this.recipeService.getRecipeById(+id).preparation;
-   /* this.ingredients = this.recipeService.getRecipeById(+id).ingredients;
-    this.urlImg = this.recipeService.getRecipeById(+id).url;
-    this.preparation = this.recipeService.getRecipeById(+id).preparation;
-    this.urlVideo = this.recipeService.getRecipeById(+id).urlVideo;*/
   }
 
 }

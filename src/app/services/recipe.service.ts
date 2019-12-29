@@ -66,6 +66,25 @@ export class RecipeService {
   emitRecipeSubject() {
     this.recipesSubject.next(this.recipes.slice());
   }
+  addRecipe(name, ingredients, url, instructions, video) {
+      const recipeObject: Recipe = {
+        id: 0,
+        name: '',
+        ingredients: [],
+        url: '',
+        preparation : [],
+        urlVideo: ''
+      };
+      recipeObject.id = this.recipes[(this.recipes.length - 1)].id + 1;
+      recipeObject.name = name;
+      recipeObject.ingredients = ingredients.split(',');
+      recipeObject.url = url;
+      recipeObject.preparation = instructions.split(',');
+      recipeObject.urlVideo = video;
+
+      this.recipes.push(recipeObject);
+      this.emitRecipeSubject();
+  }
   getRecipeById(id: number) {
    const recipe =  this.recipes.find(
      // tslint:disable-next-line: no-shadowed-variable
