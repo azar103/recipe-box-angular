@@ -1,7 +1,9 @@
 import { Recipe } from '../recipe';
+import { Subject } from 'rxjs';
 
 export class RecipeService {
- recipes =  [
+ recipesSubject = new Subject<any []>();
+ private recipes =  [
     new Recipe(1,
       'Pumpkin Pie',
     [
@@ -61,6 +63,9 @@ export class RecipeService {
   )
   ];
 
+  emitRecipeSubject() {
+    this.recipesSubject.next(this.recipes.slice());
+  }
   getRecipeById(id: number) {
    const recipe =  this.recipes.find(
      // tslint:disable-next-line: no-shadowed-variable
