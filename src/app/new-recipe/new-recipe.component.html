@@ -1,11 +1,23 @@
 <div>
   <h1>Her is the New Recipe...</h1>
-  <form class="admin-add-recipe" (ngSubmit)="onSubmit(f)"  #f="ngForm">
-      <input type="text" id="name" placeholder="Nom de la recette" name="name" ngModel required />
-      <input type="text" id="img_address" placeholder="Adresse de l'image" name="img_address" ngModel required />
-      <input type="text" id="video_address" placeholder="Adresse de video" name="video_address" ngModel required />
-      <textarea rows="3" id="ingredients" type="text" placeholder="Liste des ingrédients séparés par une virgule" name="ingredients" ngModel required ></textarea>
-      <textarea rows="15" id="instructions" type="text" placeholder="Liste des instructions séparés par une virgule" name="instructions" ngModel required></textarea>
-      <button type="submit" id="button" [disabled]="f.invalid">+ Ajouter une recette</button>
+  <form class="admin-add-recipe" [formGroup]="recipeForm" (ngSubmit)="onSubmitForm()">
+      <input type="text" id="name" placeholder="Nom de la recette"  formControlName="name"/>
+      <input type="text" id="img_address" placeholder="Adresse de l'image"  formControlName="img_address" />
+      <input type="text" id="video_address" placeholder="Adresse de video" formControlName="video_address" />
+      <div formArrayName="ingredients">
+        <h3>Vos Ingredients</h3>
+        <div *ngFor="let ingredient of getIngredients().controls; let i = index">
+             <input type="text" [formControlName]="i" class="form-control"/>
+        </div>
+        <button type="button" id="button" (click)="onAddIngredient()">Ajouter un ingredient</button>
+      </div>
+      <div formArrayName="instructions">
+        <h3>Vos Instructions</h3>
+        <div *ngFor="let instruction of getInstructions().controls; let i = index">
+             <input  type="text" [formControlName]="i" class="form-control"/>
+        </div>
+        <button type="button"  id="button" (click)="onAddInstruction()">Ajouter une instruction</button>
+      </div>
+      <button type="submit" id="button" [disabled]="recipeForm.invalid">+ Ajouter une recette</button>
   </form>
 </div>
