@@ -22,10 +22,18 @@ export class RecipesViewComponent implements OnInit, OnDestroy {
       }
     );
     this.recipeService.emitRecipes();
+    this.onLoad();
   }
 
   ngOnDestroy() {
     this.recipesSubscription.unsubscribe();
+  }
+  onSave() {
+    this.recipeService.postRecipesToServer();
+  }
+
+  onLoad() {
+    this.recipeService.getRecipesFromServer();
   }
 
 

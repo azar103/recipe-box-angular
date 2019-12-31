@@ -10,7 +10,7 @@ import { SingleRecipeComponent } from './single-recipe/single-recipe.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { RecipesViewComponent } from './recipes-view/recipes-view.component';
 import { NewRecipeComponent } from './new-recipe/new-recipe.component';
-
+import { HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +25,8 @@ import { NewRecipeComponent } from './new-recipe/new-recipe.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     RecipeService
